@@ -32,19 +32,15 @@
       gap: 1rem;
       scroll-snap-type: x mandatory;
       background-color: #fafafa;
+      -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
 
       /* Hide scrollbar for WebKit browsers */
-      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
     }
     
     /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
     .card-container::-webkit-scrollbar {
       display: none;
-    }
-    
-    /* Hide scrollbar for Firefox */
-    .card-container {
-      scrollbar-width: none; /* Firefox */
     }
 
     .card {
@@ -136,7 +132,6 @@
         <div class="grid-card" onclick="showData('Grid Card 6')">Grid Card 6</div>
         <div class="grid-card" onclick="showData('Grid Card 7')">Grid Card 7</div>
         <div class="grid-card" onclick="showData('Grid Card 8')">Grid Card 8</div>
-        
       </div>
     </div>
   </div>
