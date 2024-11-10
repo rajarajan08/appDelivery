@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Scrollable Card Container with Fixed Navbar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Bree+Serif&display=swap" rel="stylesheet">
   <style>
-    /* Styling for navbar */
+    /* Global Styles */
+    body {
+      background-color: #FFFBE6;
+      font-family: "Balsamiq Sans", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    /* Navbar Styling */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 60px;
-      background-color: #333;
+      background-color: #347928;
       color: #fff;
       display: flex;
       align-items: center;
@@ -21,30 +32,30 @@
       z-index: 1000;
     }
 
+    /* Container with margin for fixed navbar */
     .container {
-      margin-top: 70px; /* Space for fixed navbar */
+      margin-top: 70px;
     }
 
+    /* Horizontal scrollable card container */
     .card-container {
       display: flex;
       overflow-x: auto;
       padding: 1rem;
       gap: 1rem;
       scroll-snap-type: x mandatory;
-      background-color: #fafafa;
-      -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
-
-      /* Hide scrollbar for WebKit browsers */
-      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      background-color: #FFFBE6;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
     
-    /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
     .card-container::-webkit-scrollbar {
       display: none;
     }
 
+    /* Card styling */
     .card {
-      flex: 0 0 calc((100% - 2rem) / 2); /* Default width for 2 cards */
+      flex: 0 0 calc((100% - 2rem) / 2);
       scroll-snap-align: start;
       background-color: #f0f0f0;
       padding: 1.5rem;
@@ -55,37 +66,37 @@
       cursor: pointer;
     }
 
-    /* Responsive adjustments */
+    /* Responsive card adjustments */
     @media (min-width: 600px) {
       .card {
-        flex: 0 0 calc((100% - 3rem) / 3); /* 3 cards for medium screens */
+        flex: 0 0 calc((100% - 3rem) / 3);
       }
     }
 
     @media (min-width: 900px) {
       .card {
-        flex: 0 0 calc((100% - 4rem) / 4); /* 4 cards for larger screens */
+        flex: 0 0 calc((100% - 4rem) / 4);
       }
     }
 
+    /* Grid container for 2x2 grid layout */
     .grid-container {
       display: flex;
       overflow-x: auto;
       gap: 1rem;
       scroll-snap-type: x mandatory;
       padding: 1rem;
-      background-color: #fafafa;
-      max-width: 100%; /* Limit width for scrolling */
+      background-color: #FFFBE6;
+      max-width: 100%;
     }
 
-    /* Each page will contain a 2x2 grid of 4 cards */
     .grid-page {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns */
-      grid-template-rows: repeat(2, auto); /* 2 rows */
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
       gap: 1rem;
-      min-width: 100%; /* Full container width to show 4 cards at a time */
-      scroll-snap-align: start; /* Snap to each page */
+      min-width: 100%;
+      scroll-snap-align: start;
     }
 
     .grid-card {
