@@ -8,21 +8,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Bree+Serif&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
     body {
       background-color: #FFFBE6;
       font-family: "Balsamiq Sans", serif;
       font-weight: 400;
       font-style: normal;
+      margin: 0;
+      padding: 0;
     }
-    
-    /* Navbar Styling */
+
+    /* Styling for navbar */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 60px;
+      height: 90px;
       background-color: #347928;
       color: #fff;
       display: flex;
@@ -32,12 +33,11 @@
       z-index: 1000;
     }
 
-    /* Container with margin for fixed navbar */
     .container {
-      margin-top: 70px;
+      margin: 100px 6px; /* Space for fixed navbar */
+
     }
 
-    /* Horizontal scrollable card container */
     .card-container {
       display: flex;
       overflow-x: auto;
@@ -45,17 +45,16 @@
       gap: 1rem;
       scroll-snap-type: x mandatory;
       background-color: #FFFBE6;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    
-    .card-container::-webkit-scrollbar {
-      display: none;
+      -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
     }
 
-    /* Card styling */
+    .card-container::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for WebKit browsers */
+    }
+
     .card {
-      flex: 0 0 calc((100% - 2rem) / 2);
+      flex: 0 0 calc((100% - 12rem) / 3);
       scroll-snap-align: start;
       background-color: #f0f0f0;
       padding: 1.5rem;
@@ -64,22 +63,9 @@
       text-align: center;
       font-size: 1.2rem;
       cursor: pointer;
+      height: 40px;
     }
 
-    /* Responsive card adjustments */
-    @media (min-width: 600px) {
-      .card {
-        flex: 0 0 calc((100% - 3rem) / 3);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .card {
-        flex: 0 0 calc((100% - 4rem) / 4);
-      }
-    }
-
-    /* Grid container for 2x2 grid layout */
     .grid-container {
       display: flex;
       overflow-x: auto;
@@ -87,7 +73,6 @@
       scroll-snap-type: x mandatory;
       padding: 1rem;
       background-color: #FFFBE6;
-      max-width: 100%;
     }
 
     .grid-page {
@@ -107,6 +92,37 @@
       text-align: center;
       font-size: 1.2rem;
       cursor: pointer;
+      height: 70px;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #347928;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      color: #c0ffba;
+    }
+
+    .nav-icon {
+      display: block;
+      font-size: 1.5rem;
     }
   </style>
 </head>
@@ -114,11 +130,14 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    Navbar - Fixed Navigation
+    Delivery Boy
   </div>
 
   <div class="container">
     <!-- Horizontal Scrollable Card Container -->
+    <h4>
+      Favourite menu
+    </h4>
     <div class="card-container">
       <div class="card" onclick="showData('Card 1')">Card 1</div>
       <div class="card" onclick="showData('Card 2')">Card 2</div>
@@ -129,6 +148,11 @@
     </div>
 
     <!-- 2x2 Grid Layout with Horizontal Scroll -->
+
+    <h4>
+      Available Hotels list, 
+    </h4>
+    <p>Select one to see the menu</p>
     <div class="grid-container">
       <div class="grid-page">
         <div class="grid-card" onclick="showData('Grid Card 1')">Grid Card 1</div>
@@ -142,6 +166,22 @@
         <div class="grid-card" onclick="showData('Grid Card 7')">Grid Card 7</div>
         <div class="grid-card" onclick="showData('Grid Card 8')">Grid Card 8</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <div class="nav-item" onclick="showData('Home')">
+      <span class="nav-icon">🏠</span>
+      Home
+    </div>
+    <div class="nav-item" onclick="showData('Hotels')">
+      <span class="nav-icon">🏨</span>
+      Hotels
+    </div>
+    <div class="nav-item" onclick="showData('Cart')">
+      <span class="nav-icon">🛒</span>
+      Cart
     </div>
   </div>
 
